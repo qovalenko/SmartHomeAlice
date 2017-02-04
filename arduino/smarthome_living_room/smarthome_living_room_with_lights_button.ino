@@ -34,7 +34,7 @@ RCSwitch rc_switch = RCSwitch();
 //#define receiver_power(x) x ? PORTD = (1<<PD4) : PORTD = ~(1<<PD4); 
 //#define sender_power(x)   x ? PORTD = (1<<PD6) : PORTD = ~(1<<PD6); 
 
-#define receiver_power(x). digitalWrite(RECEIVER_POW, 1);
+#define receiver_power(x)  digitalWrite(RECEIVER_POW, 1);
 #define sender_power(x)    digitalWrite(SENDER_POW, 1);
 
 byte lbutton_state = 0;
