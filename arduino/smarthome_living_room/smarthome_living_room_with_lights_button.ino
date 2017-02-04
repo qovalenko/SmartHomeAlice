@@ -80,11 +80,12 @@ void configurePins() {
 }
 
 void change_relay_state(byte state) { 
- if (state != TOGGLE) { 
-  digitalWrite(RELAY_PIN, (relay - 1));
-  EEPROM.write(EE_ADDR, (byte)(relay - 1));
- } else
+ if (state != TOGGLE) 
+  digitalWrite(RELAY_PIN, state);
+ else
   toggle_lights(); 
+ 
+ EEPROM.write(EE_ADDR, (byte)state);
  send_status();
 }
 
