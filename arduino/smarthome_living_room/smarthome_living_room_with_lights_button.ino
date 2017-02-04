@@ -79,9 +79,12 @@ void configurePins() {
  #endif
 }
 
-void change_relay_state(byte state) {
- digitalWrite(RELAY_PIN, (relay - 1));
- EEPROM.write(EE_ADDR, (byte)(relay - 1));
+void change_relay_state(byte state) { 
+ if (state != TOGGLE) { 
+  digitalWrite(RELAY_PIN, (relay - 1));
+  EEPROM.write(EE_ADDR, (byte)(relay - 1));
+ } else
+  toggle_lights(); 
  send_status();
 }
 
